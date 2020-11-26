@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+    <div class="main">
+        <p>ユーザー名を入力してください</p>
+        <input id="user_id" type="text" placeholder="ユーザーID(最大5文字)">
+        <p>アイコンを選択してください<br>(透明のアイコンは選択可能ですが他の人が使用していますので非推薦です)</p>
+        <dl>
+            <div>
+                <dt></dt>
+                <dd><img class="icon" id="buke" src="img/buke.png"></dd>
+            </div>
+            <div>
+                <dt></dt>
+                <dd><img class=" icon" id="caram" src="img/caram.png"></dd>
+            </div>
+            <div>
+                <dt></dt>
+                <dd><img class=" icon" id="buke" src="img/tuku.jpg"></dd>
+            </div>
+        </dl>
+        <input id="login_button" type="submit" value="ログイン">
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="firebase.js"></script>
+
+
+    <script>
+
+
+        $("#login_button").on("click", function () {
+            let i = $("#user_id").val();
+            if (i.length <= 5) {
+                localStorage.setItem("local_user", i);
+            }
+            if (confirm("チャットルームへ移動します")) {
+                window.location.href = "chat.html";
+            }
+            else {
+                alert("ユーザー名は最大5文字でお願いします");
+            }
+        });
+
+    </script>
+</body>
+
+</html>

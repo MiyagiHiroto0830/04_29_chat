@@ -1,0 +1,190 @@
+html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    background-image: url("../img/o0290041813135618301.png");
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+img{
+    max-width: 100%;
+    box-sizing: border-box;
+    height: auto;
+    border-radius: 100%;
+    border-bottom: solid 4px #627295;
+}
+img:active{
+    -ms-transform: translateY(3px);
+    -webkit-transform: translateY(3px);
+    transform: translateY(3px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
+}
+/* メイン */
+.main{
+    position: absolute;
+    top: 10%;
+    text-align: center;
+    border: black;
+    width: 100%;
+    padding: 10px;
+}
+.main p{
+    font-family: "Rounded Mplus 1c",sans-serif;
+    margin-bottom: 10px;
+}
+dl{
+    width: 50%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-around;
+}
+dl div{
+    width: 30%;
+}
+
+
+#user_id{
+    width: 20%;
+    height: 30px;
+    color: black;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.icon{
+    width: 50%;
+}
+.icon.active{
+    opacity: 0.1;
+}
+a{
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+}
+#login_button{
+    width: 15%;
+    height: 25px;
+    font-size: 14px;
+    color: black;
+    background: #32cd32;
+    border-bottom: solid 2px #627295;
+    border-radius: 3px;
+}
+#login_button:active {/*ボタンを押したとき*/
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
+}
+body{
+    font-family: sans-serif;
+    width: 95%;
+    margin: 0 auto;
+    user-select: none;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+textarea{
+    font-family: "Rounded Mplus 1c",sans-serif;
+    font-size: 16px;
+    color: black;
+    border-radius: 10px;
+    border: 2px solid #000;
+    outline: 0;
+    padding: 10px;
+    resize: none;
+}
+
+/* タイトル */
+.title{
+    width: 100%;
+    text-align: center;
+    margin: 20px auto;
+    font-weight: bold;
+    font-size: 64px;
+    font-family: Arial, Helvetica, sans-serif
+}
+.description{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* チャット */
+.main{
+    width: 100%;
+}
+/* 左側の人 */
+.left{
+    display: inline-block;
+    width: 100%;
+    margin: 20px 0;
+}
+/* 右側の人 */
+.right{
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+}
+#pastmsg div{
+    margin: 10px 0;
+}
+.input_text{
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-53%);
+    justify-content: space-around;
+}
+.input_text textarea{
+    width: 600px;
+    position: relative;
+}
+.submit{
+    position: absolute;
+    width: 70px;
+    height: 35px;
+    bottom: 0;
+    left: 625px;
+    font-size: 14px;
+    font-family: "Rounded Mplus 1c",sans-serif;
+    font-weight: bold;
+    background: slateblue;
+    border-radius: 10px;
+    border: 0.1px solid #000;
+}
+
+/* 左側の人 */
+.left{
+    width: 100%;
+    position: relative;
+}
+.left p{
+    position: absolute;
+    top: 0;
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 0 auto;
+    width: 4%;
+    text-align: center;
+}
+.left img{
+    margin-right: 5px;
+    max-width: 4%;
+    height: auto;
+    border-radius: 100%;   
+}
+/* 右側の人 */
+.right{
+    width: 100%;
+    text-align: right;
+}
+.right textarea{
+    background: limegreen;
+}

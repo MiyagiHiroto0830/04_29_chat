@@ -1,0 +1,111 @@
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+    <div class="title">Hello</div>
+    <div class="main">
+        <div id="output"></div>
+        <div class="input_text">
+            <textarea required id="text" rows="2"></textarea>
+            <button id="submit" class="submit">送信</button>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCIxDuhC-kLkHkCutN75j3uuPPk_c-7GBU",
+            authDomain: "chat-sample-65518.firebaseapp.com",
+            databaseURL: "https://chat-sample-65518.firebaseio.com",
+            projectId: "chat-sample-65518",
+            storageBucket: "chat-sample-65518.appspot.com",
+            messagingSenderId: "107696553712",
+            appId: "1:107696553712:web:cd65a9ff78fa13e5fecc35"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        var db = firebase.firestore().collection("chatapp");
+
+
+
+
+
+
+
+        // ユーザー識別
+        let local_user = localStorage.getItem("local_user");
+
+
+        // 送信
+        $("#submit").on("click", function () {
+            const data = {
+                name: local_user,
+                text: $("#text").val(),
+                time: firebase.firestore.FieldValue.serverTimestamp(),
+            }
+            db.add(data);
+            $("#text").val("");
+        });
+        db.orderBy("time", "desc").onSnapshot(function (querySnapshot) {
+            const dataArray = [];
+            querySnapshot.docs.forEach(function (doc) {
+                const data = {
+                    id: doc.id,
+                    data: doc.data(),
+                }
+                dataArray.push(data);
+            });
+            const tagArray = [];
+            dataArray.forEach(function (data) {
+                tagArray.push(`
+            <li id=${data.id}>
+              <p>${data.data.name}</p>  
+              <p>${data.data.text}</p> 
+              <p>${data.data.time.seconds}</p>
+             </li> 
+             `)
+            })
+            $('#output').html(tagArray);
+
+            const a = [];
+            db.collection("chatapp").where("name", "==", "local_user")
+                .get()
+                .then(function (querysnapshot) {
+                    querySnapshot.forEach(function (doc) {
+                        const localdata = {
+                            id: doc.id,
+                            data: doc.data(),
+                        }
+                        a.push(localdata);
+                    })
+                })
+
+
+
+
+        });
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
