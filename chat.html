@@ -28,7 +28,7 @@
     <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
-            apiKey: "AIzaSyCIxDuhC-kLkHkCutN75j3uuPPk_c-7GBU",
+            apiKey: "",
             authDomain: "chat-sample-65518.firebaseapp.com",
             databaseURL: "https://chat-sample-65518.firebaseio.com",
             projectId: "chat-sample-65518",
@@ -81,19 +81,6 @@
              `)
             })
             $('#output').html(tagArray);
-
-            const a = [];
-            db.collection("chatapp").where("name", "==", "local_user")
-                .get()
-                .then(function (querysnapshot) {
-                    querySnapshot.forEach(function (doc) {
-                        const localdata = {
-                            id: doc.id,
-                            data: doc.data(),
-                        }
-                        a.push(localdata);
-                    })
-                })
 
 
 
